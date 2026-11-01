@@ -153,20 +153,24 @@ export default function BasketCalculator() {
                 return (
                   <li
                     key={o.name}
-                    className={`relative flex items-center gap-4 rounded-2xl border-2 border-brand-navy p-4 transition-all duration-300 ${
+                    className={`relative flex flex-col gap-3 rounded-2xl border-2 border-brand-navy p-4 transition-all duration-300 ${
                       active
                         ? "bg-[#FFE9A8] shadow-[5px_6px_0_0_var(--color-brand-navy)]"
                         : "bg-white shadow-[3px_4px_0_0_rgba(10,10,60,0.35)]"
                     }`}
                   >
-                    <div className={`w-14 shrink-0 transition-transform duration-300 ${active ? "scale-110 -rotate-6" : "opacity-70 grayscale-[0.4]"}`}>
-                      <Art className="h-auto w-full drop-shadow-[3px_4px_0_rgba(10,10,60,0.2)]" />
+                    <div className="flex items-start gap-3">
+                      <div className={`w-12 shrink-0 transition-transform duration-300 ${active ? "scale-110 -rotate-6" : "opacity-70 grayscale-[0.4]"}`}>
+                        <Art className="h-auto w-full drop-shadow-[3px_4px_0_rgba(10,10,60,0.2)]" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="break-words font-display text-xl font-bold leading-tight">{o.name}</p>
+                        <p className="mt-0.5 text-sm font-medium text-brand-navy/60">{o.unit}</p>
+                      </div>
                     </div>
 
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate font-display text-lg font-bold leading-tight">{o.name}</p>
-                      <p className="text-xs font-medium text-brand-navy/55">{o.unit}</p>
-                      <p className="mt-1 text-sm font-bold">
+                    <div className="flex items-center justify-between gap-3 border-t-2 border-dashed border-brand-navy/15 pt-3">
+                      <p className="text-base font-bold">
                         <span className="text-[#E63B2E]">{rupee(o.price)}</span>
                         {mrpOf(o) > o.price && (
                           <span className="ml-1.5 text-xs font-medium text-brand-navy/40">
@@ -174,7 +178,6 @@ export default function BasketCalculator() {
                           </span>
                         )}
                       </p>
-                    </div>
 
                     <div className="flex shrink-0 items-center gap-1.5">
                       <button
@@ -199,6 +202,7 @@ export default function BasketCalculator() {
                         +
                       </button>
                     </div>
+                    </div>
                   </li>
                 );
               })}
@@ -222,7 +226,7 @@ export default function BasketCalculator() {
                   <ul className="max-h-56 space-y-2 overflow-y-auto pr-1 font-mono text-sm">
                     {chosen.map((o) => (
                       <li key={o.name} className="flex items-baseline justify-between gap-3">
-                        <span className="min-w-0 truncate">
+                        <span className="min-w-0 break-words">
                           {o.name} <span className="text-brand-navy/50">×{qty[o.name]}</span>
                         </span>
                         <span className="shrink-0 font-bold tabular-nums">{rupee(o.price * qty[o.name])}</span>
