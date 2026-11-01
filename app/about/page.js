@@ -1,5 +1,5 @@
-import PageHeader from "@/components/PageHeader";
-import WhyUs from "@/components/WhyUs";
+import PageHeader from "././../../components/PageHeader";
+import WhyUs from "././../../components/WhyUs";
 
 export const metadata = { title: "About | Value Mart" };
 
