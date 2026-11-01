@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Colors sampled from the Value Mart logo, plus a sun-yellow for price-tag moments */
+@theme {
+  --color-brand-orange: #f2502d;
+  --color-brand-orange-dark: #c93a1b;
+  --color-brand-blue: #1a1aa6;
+  --color-brand-navy: #0b0b4f;
+  --color-brand-ink: #14143c;
+  --color-mist: #eef0fb;
+  --color-sun: #ffd23f;
+
+  --font-display: var(--font-bricolage), system-ui, sans-serif;
+  --font-sans: var(--font-figtree), system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-padding-top: 6rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  color: var(--color-brand-ink);
+  background: #fff;
+}
+
+/* Subtle dot grid for dark sections */
+.bg-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
+/* Hero stickers: drop in once, then float gently */
+@keyframes drop {
+  from { opacity: 0; transform: translateY(-160px) scale(0.7); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes bob {
+  50% { translate: 0 -10px; }
+}
+.sticker-in {
+  rotate: var(--r, 0deg);
+  animation: drop 0.9s cubic-bezier(0.2, 1.35, 0.4, 1) both;
+}
+.bob {
+  animation: bob 5s ease-in-out infinite;
+}
+
+/* Price tickers */
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+
+/* Rotating badge */
+@keyframes spin {
+  to { rotate: 360deg; }
+}
+.spin-slow {
+  animation: spin 22s linear infinite;
+}
+
+/* Price tags swing when hovered */
+@keyframes sway {
+  0%, 100% { rotate: 0deg; }
+  25% { rotate: 4deg; }
+  75% { rotate: -4deg; }
+}
+.sway-hover {
+  transform-origin: top center;
+}
+.sway-hover:hover {
+  animation: sway 1.3s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticker-in, .bob, .marquee-track, .spin-slow, .sway-hover:hover {
+    animation: none !important;
+  }
+  * { transition: none !important; }
 }
