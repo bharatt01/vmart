@@ -2,10 +2,10 @@
 export const site = {
   name: "Value Mart",
   shortName: "VMart",
-  phone: "+91 98765 43210",
-  whatsapp: "919876543210", // country code + number, no + or spaces
-  address: "Your street, Your area, Delhi",
-  mapQuery: "Your store name, Your area, Delhi", // what Google Maps should search for
+  phone: "+91 9873333039", // country code + number, with + and spaces
+  whatsapp: "919873333039", // country code + number, no + or spaces
+  address: "Faridabad, India",
+  mapQuery: "Value Mart Faridabad, India", // what Google Maps should search for
   open: 7, // opening hour, 24h clock
   close: 22, // closing hour, 24h clock
   hours: "Open daily, 7:00 am to 10:00 pm",

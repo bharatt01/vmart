@@ -9,10 +9,10 @@ import { useEffect, useMemo, useState } from "react";
    lat / lng are only used for the "nearest store" sort. Copy them from Google Maps
    (right click the store pin). open / close are 24h hours in IST. phone is digits only, with 91. */
 const stores = [
-  { id: "deoli", name: "Deoli", address: "Replace with full address, Deoli, New Delhi", open: 7, close: 22, phone: "919999900001", lat: 28.5, lng: 77.23 },
-  { id: "store-2", name: "Store 2", address: "Replace with full address", open: 7, close: 22, phone: "919999900002", lat: 28.52, lng: 77.2 },
-  { id: "store-3", name: "Store 3", address: "Replace with full address", open: 7, close: 22, phone: "919999900003", lat: 28.55, lng: 77.25 },
-  { id: "store-4", name: "Store 4", address: "Replace with full address", open: 7, close: 22, phone: "919999900004", lat: 28.48, lng: 77.27 },
+  { id: "store-1", name: "Store 1", address: "Replace with full address, Store 1, Faridabad", open: 7, close: 22, phone: "919999900001", lat: 28.5, lng: 77.23 },
+  { id: "store-2", name: "Store 2", address: "Replace with full address, Store 2, Faridabad", open: 7, close: 22, phone: "919999900002", lat: 28.52, lng: 77.2 },
+  { id: "store-3", name: "Store 3", address: "Replace with full address, Store 3, Faridabad", open: 7, close: 22, phone: "919999900003", lat: 28.55, lng: 77.25 },
+  { id: "store-4", name: "Store 4", address: "Replace with full address, Store 4, Faridabad", open: 7, close: 22, phone: "919999900004", lat: 28.48, lng: 77.27 },
 ];
 
 const zigzag = "conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 20px 100%";

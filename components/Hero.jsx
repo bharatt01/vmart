@@ -15,7 +15,7 @@ const HERO_ALT = "Fresh vegetables and fruit arranged on a grocery shelf";
 
 /* TODO: move to app/lib/site.js. open / close are 24h hours in IST. */
 const stores = [
-  { id: "deoli", name: "Deoli", open: 7, close: 22, phone: "919999900001", mapQuery: "Value Mart Deoli, Delhi" },
+  { id: "store-1", name: "Store 1", open: 7, close: 22, phone: "919999900001", mapQuery: "Value Mart Store 1" },
   { id: "store-2", name: "Store 2", open: 7, close: 22, phone: "919999900002", mapQuery: "Value Mart Store 2" },
   { id: "store-3", name: "Store 3", open: 7, close: 22, phone: "919999900003", mapQuery: "Value Mart Store 3" },
   { id: "store-4", name: "Store 4", open: 7, close: 22, phone: "919999900004", mapQuery: "Value Mart Store 4" },
