@@ -26,7 +26,6 @@ export const departments = [
     size: "md:col-span-2",
     stickers: ["bottle"],
   },
-  { name: "Bakery", items: "Bread, buns, rusk and cakes.", tone: "bg-brand-blue/10 text-brand-ink", stickers: ["bread"] },
   { name: "Packaged and frozen", items: "Ready-to-cook, noodles, sauces, frozen peas.", tone: "bg-brand-blue text-white", stickers: ["peas"] },
 ];
 

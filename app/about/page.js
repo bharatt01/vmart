@@ -1,3 +1,4 @@
+import AboutSection from "../../components/Aboutsection";
 import PageHeader from "././../../components/PageHeader";
 import WhyUs from "././../../components/WhyUs";
 
@@ -7,6 +8,7 @@ export default function Page() {
   return (
     <>
       <PageHeader title="About Value Mart" />
+      <AboutSection />
       <section className="bg-mist">
         <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
           {/* Replace with your real story: who started the store, when, and why. */}
