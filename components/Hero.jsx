@@ -12,7 +12,7 @@ import { offers } from "../app/lib/data";
    because the headline sits there. Save it as /public/hero.webp */
 const HERO_SRC = "/herobanner.png";
 const HERO_ALT = "Fresh vegetables and fruit arranged on a grocery shelf";
-
+const HERO_VIDEO = "/hero-video.mp4";
 /* TODO: move to app/lib/site.js. open / close are 24h hours in IST. */
 const stores = [
   { id: "store-1", name: "Store 1", open: 7, close: 22, phone: "919999900001", mapQuery: "Value Mart Store 1" },
@@ -48,6 +48,7 @@ function useStatus(open, close) {
 export default function HeroBanner() {
   const [storeId, setStoreId] = useState(stores[0].id);
   const [imgFailed, setImgFailed] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
   const store = stores.find((s) => s.id === storeId) ?? stores[0];
   const isOpen = useStatus(store.open, store.close);
 
@@ -64,35 +65,57 @@ export default function HeroBanner() {
       {/* ------------------------------ Banner ------------------------------ */}
       <div className="relative isolate min-h-[34rem] overflow-hidden bg-[#404898] md:min-h-[40rem]">
         {/* Image covers the whole banner */}
-        {!imgFailed && (
-          <Image
-            src={HERO_SRC}
-            alt={HERO_ALT}
-            fill
-            priority
-            sizes="100vw"
-            className="-z-20 object-cover object-[70%_center] md:object-center"
-            onError={() => setImgFailed(true)}
-          />
-        )}
+       {/* Video covers the whole banner, image is the poster and the fallback */}
+{!videoFailed ? (
+  <video
+    className="absolute inset-0 -z-20 h-full w-full object-cover object-[70%_center] md:object-center"
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="metadata"
+    poster={HERO_SRC}
+    aria-hidden="true"
+  >
+    <source
+      src={HERO_VIDEO}
+      type="video/mp4"
+      onError={() => setVideoFailed(true)}
+    />
+  </video>
+) : (
+  !imgFailed && (
+    <Image
+      src={HERO_SRC}
+      alt={HERO_ALT}
+      fill
+      priority
+      sizes="100vw"
+      className="-z-20 object-cover object-[70%_center] md:object-center"
+      onError={() => setImgFailed(true)}
+    />
+  )
+)}
 
         {/* Dark-blue overlay keeps the headline readable on any photo.
             Solid on mobile, fading to clear on the right on desktop. */}
-        <div
-          className="absolute inset-0 -z-10 bg-[#1B2152]/50 md:bg-gradient-to-r md:from-[#1B2152]/80 md:via-[#1B2152]/35 md:to-transparent"
-          aria-hidden="true"
-        />
+  {/* Light overall tint */}
+<div className="absolute inset-0 -z-10 bg-[#1B2152]/20" aria-hidden="true" />
+
+{/* Stronger fade behind the text only */}
+<div
+  className="absolute inset-0 -z-10 bg-gradient-to-b from-[#1B2152]/60 via-[#1B2152]/30 to-[#1B2152]/10 md:bg-gradient-to-r md:from-[#1B2152]/75 md:via-[#1B2152]/35 md:to-transparent"
+  aria-hidden="true"
+/>
 
         <div className="mx-auto flex min-h-[inherit] max-w-6xl flex-col justify-center px-4 pb-28 pt-14 sm:px-6 md:pb-32">
           <div className="max-w-xl">
             <h1
-              className="font-display font-bold leading-[1.02] tracking-[-0.035em] text-white"
-              style={{ fontSize: "clamp(2.5rem, 5.6vw, 4.6rem)" }}
-            >
+           className="font-display font-bold leading-[1.02] tracking-[-0.035em] text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.45)]"   >
               Fresh groceries, fair prices, every day.
             </h1>
 
-            <p className="mt-5 max-w-md text-lg leading-relaxed text-white/90">
+            <p className="mt-5 max-w-md text-lg leading-relaxed text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.5)]">
               Walk in, pick what you need and pay the price on the shelf.
             </p>
 
@@ -105,8 +128,7 @@ export default function HeroBanner() {
               </Link>
               <a
                 href="#stores"
-                className={`inline-flex min-h-12 items-center rounded-full border-2 border-white px-6 text-base font-bold text-white transition hover:bg-white hover:text-[#1B2152] ${focusLight}`}
-              >
+              className={`inline-flex min-h-12 items-center rounded-full border-2 border-white bg-white/10 px-6 text-base font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#1B2152] ${focusLight}`}   >
                 Find your store
               </a>
             </div>
