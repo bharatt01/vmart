@@ -111,7 +111,8 @@ export default function HeroBanner() {
         <div className="mx-auto flex min-h-[inherit] max-w-6xl flex-col justify-center px-4 pb-28 pt-14 sm:px-6 md:pb-32">
           <div className="max-w-xl">
             <h1
-           className="font-display font-bold leading-[1.02] tracking-[-0.035em] text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.45)]"   >
+             className="font-display font-bold leading-[1.02] tracking-[-0.035em] text-7xl text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.45)]"
+            >
               Fresh groceries, fair prices, every day.
             </h1>
 
