@@ -12,7 +12,7 @@ import { offers } from "../app/lib/data";
    because the headline sits there. Save it as /public/hero.webp */
 const HERO_SRC = "/herobanner.png";
 const HERO_ALT = "Fresh vegetables and fruit arranged on a grocery shelf";
-const HERO_VIDEO = "/hero-video.mp4";
+const HERO_VIDEO = "/herovideo.mp4";
 /* TODO: move to app/lib/site.js. open / close are 24h hours in IST. */
 const stores = [
   { id: "store-1", name: "Store 1", open: 7, close: 22, phone: "919999900001", mapQuery: "Value Mart Store 1" },
@@ -63,13 +63,12 @@ export default function HeroBanner() {
   return (
     <section className="bg-[#F2F3FA] text-[#1B2152]">
       {/* ------------------------------ Banner ------------------------------ */}
-      <div className="relative isolate min-h-[34rem] overflow-hidden bg-[#404898] md:min-h-[40rem]">
-        {/* Image covers the whole banner */}
+    <div className="relative isolate min-h-[24rem] overflow-hidden bg-[#404898] md:min-h-[28rem]">    {/* Image covers the whole banner */}
        {/* Video covers the whole banner, image is the poster and the fallback */}
 {!videoFailed ? (
   <video
-    className="absolute inset-0 -z-20 h-full w-full object-cover object-[70%_center] md:object-center"
-    autoPlay
+  className="absolute inset-0 -z-20 h-full w-full object-cover object-[70%_30%] md:object-[center_30%]" 
+  autoPlay
     muted
     loop
     playsInline
@@ -120,7 +119,7 @@ export default function HeroBanner() {
               Walk in, pick what you need and pay the price on the shelf.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            {/* <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="/offers"
                 className={`inline-flex min-h-12 items-center rounded-full bg-[#F05038] px-7 text-base font-bold text-[#1B2152] transition hover:bg-[#ff6149] ${focusLight}`}
@@ -132,18 +131,18 @@ export default function HeroBanner() {
               className={`inline-flex min-h-12 items-center rounded-full border-2 border-white bg-white/10 px-6 text-base font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#1B2152] ${focusLight}`}   >
                 Find your store
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Price tags sit on the image, bottom right on desktop */}
-          <div className="mt-8 flex gap-3 md:absolute md:bottom-28 md:right-8 md:mt-0 lg:right-[max(2rem,calc((100vw-72rem)/2+1.5rem))]">
+          {/* <div className="mt-8 flex gap-3 md:absolute md:bottom-28 md:right-8 md:mt-0 lg:right-[max(2rem,calc((100vw-72rem)/2+1.5rem))]">
             {tags.map((o) => (
               <div key={o.name} className="rounded-2xl bg-white px-4 py-2.5 shadow-lg">
                 <p className="text-sm font-semibold">{o.name}</p>
                 <p className="font-display text-2xl font-bold leading-none text-[#CF3520]">₹{o.price}</p>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 

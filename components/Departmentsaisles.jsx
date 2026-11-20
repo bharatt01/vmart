@@ -18,7 +18,7 @@ import { Reveal } from "./Motion";
    Concept: aisle signs hang from a rail. Pick one and its sections and highlights appear.
 
    EDIT THE CONTENT BELOW to match what your store really stocks. The highlight lines
-   are sample wording, so keep only what is true for you. Add or remove departments freely,
+  //  are sample wording, so keep only what is true for you. Add or remove departments freely,
    the tab row adjusts to however many there are.
 
    Photos are optional, one per department: add  image: "/departments/produce.webp"

@@ -423,7 +423,7 @@ export default function VisitUs() {
           ))}
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
+        {/* <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
           <Reveal>
             <h1 className="max-w-4xl font-display text-5xl font-bold leading-[0.98] tracking-[-0.045em] sm:text-7xl lg:text-8xl">
               Come visit us.
@@ -448,7 +448,7 @@ export default function VisitUs() {
               </a>
             ))}
           </nav>
-        </div>
+        </div> */}
       </section>
 
       {/* ---------- main branch ---------- */}
