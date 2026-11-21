@@ -30,7 +30,7 @@ function Arrow({ active }) {
 
 function Photo({ d, i, sizes }) {
   return d.image ? (
-    <Image src={d.image} alt="" fill sizes={sizes} className="object-cover" />
+    <Image src={d.image}  loading="eager" alt="" fill sizes={sizes} className="object-cover" />
   ) : (
     <div className={`absolute inset-0 grid place-items-center ${fills[i % fills.length]}`} aria-hidden="true">
       <span className="font-display text-[10rem] font-bold leading-none text-white/20">{d.name.charAt(0)}</span>
@@ -55,9 +55,9 @@ export default function DepartmentsDirectory({ heading = true }) {
           </Reveal>
         )}
 
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+       <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
           {/* ----------------------- Directory list ----------------------- */}
-          <ul className="border-t border-white/15 lg:col-span-7">
+      <ul className="border-t border-white/15 lg:col-span-6">
             {departments.map((d, i) => {
               const isActive = i === active;
               return (
@@ -90,7 +90,11 @@ export default function DepartmentsDirectory({ heading = true }) {
                   >
                     <div className="overflow-hidden">
                       <div className="relative mb-4 aspect-[16/10] overflow-hidden rounded-2xl">
-                        <Photo d={d} i={i} sizes="100vw" />
+                       <Photo
+  d={d}
+  i={i}
+  sizes="(min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)"
+/>
                       </div>
                       <p className="pb-5 text-lg leading-relaxed text-white/85">{d.items}</p>
                     </div>
@@ -101,27 +105,33 @@ export default function DepartmentsDirectory({ heading = true }) {
           </ul>
 
           {/* ----------------------- Photo panel (desktop) ----------------------- */}
-          <div className="hidden lg:col-span-5 lg:block">
-            <div className="sticky top-24 aspect-[4/5] overflow-hidden rounded-[2rem] bg-[#404898]">
-              {departments.map((d, i) => (
-                <div
-                  key={d.name}
-                  className={`absolute inset-0 motion-safe:transition-opacity motion-safe:duration-500 ${
-                    i === active ? "opacity-100" : "opacity-0"
-                  }`}
-                  aria-hidden={i !== active}
-                >
-                  <Photo d={d} i={i} sizes="40vw" />
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1B2152]/90 via-[#1B2152]/60 to-transparent p-7 pt-24">
-                    <p className="font-display text-3xl font-bold leading-tight tracking-[-0.02em]">{d.name}</p>
-                    <p className="mt-2 max-w-sm text-lg leading-relaxed text-white/90">{d.items}</p>
-                  </div>
-                </div>
-              ))}
-              {/* Logo red tab: a small nod to the ribbon */}
-              <div className="absolute right-0 top-8 h-3 w-20 bg-[#F05038]" aria-hidden="true" />
-            </div>
-          </div>
+         {/* ----------------------- Photo panel (desktop) ----------------------- */}
+<div className="hidden lg:col-span-6 lg:block">
+  <div className="sticky top-24 aspect-[4/5] overflow-hidden rounded-[2rem] bg-[#404898]">
+    {departments.map((d, i) => (
+      <div
+        key={d.name}
+        className={`absolute inset-0 motion-safe:transition-opacity motion-safe:duration-500 ${
+          i === active ? "opacity-100" : "opacity-0"
+        }`}
+        aria-hidden={i !== active}
+      >
+        {/* Smaller photo, inset inside the box */}
+        <div className="absolute inset-x-10 top-14 bottom-36 overflow-hidden rounded-2xl">
+          <Photo d={d} i={i} sizes="30vw" />
+        </div>
+
+        {/* Text sits below the photo on the blue background */}
+        <div className="absolute inset-x-10 bottom-0 pb-8">
+          <p className="font-display text-3xl font-bold leading-tight tracking-[-0.02em]">{d.name}</p>
+          <p className="mt-2 max-w-sm text-lg leading-relaxed text-white/90">{d.items}</p>
+        </div>
+      </div>
+    ))}
+    {/* Logo red tab: a small nod to the ribbon */}
+    <div className="absolute right-0 top-8 h-3 w-20 bg-[#F05038]" aria-hidden="true" />
+  </div>
+</div>
         </div>
       </div>
     </section>

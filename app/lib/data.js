@@ -14,19 +14,25 @@ export const departments = [
     stickers: ["tomato", "orange", "carrot"],
   },
   { 
-    image: "/attarice.jpg",
+    image: "/atta.png",
     name: "Atta, rice and dal", items: "Staples in 1 kg to 25 kg packs.", tone: "bg-brand-blue text-white", stickers: ["sack"] },
-  { name: "Dairy and eggs", items: "Milk, curd, paneer, butter, eggs.", tone: "bg-mist text-brand-ink", stickers: ["milk"] },
-  { name: "Oil, ghee and masala", items: "Cooking oils, ghee, whole and ground spices.", tone: "bg-sun text-brand-navy", stickers: ["oil"] },
-  { name: "Snacks and drinks", items: "Biscuits, namkeen, juices, tea, coffee.", tone: "bg-brand-orange/15 text-brand-ink", stickers: ["cookie"] },
+  {image: "/dairy2.png",
+     name: "Dairy and eggs", items: "Milk, curd, paneer, butter, eggs.", tone: "bg-mist text-brand-ink", stickers: ["milk"] },
+  { 
+    image: "/ghee2.png",
+    name: "Oil, ghee and masala", items: "Cooking oils, ghee, whole and ground spices.", tone: "bg-sun text-brand-navy", stickers: ["oil"] },
+  { image: "/snacks2.png",
+    name: "Snacks and drinks", items: "Biscuits, namkeen, juices, tea, coffee.", tone: "bg-brand-orange/15 text-brand-ink", stickers: ["cookie"] },
   {
+    image: "/household2.png",
     name: "Household and cleaning",
     items: "Detergent, dishwash, floor cleaner, tissues, bin bags and the rest of the monthly list.",
     tone: "bg-brand-navy text-white",
     size: "md:col-span-2",
     stickers: ["bottle"],
   },
-  { name: "Packaged and frozen", items: "Ready-to-cook, noodles, sauces, frozen peas.", tone: "bg-brand-blue text-white", stickers: ["peas"] },
+  { image: "/frozen2.png",
+    name: "Packaged and frozen", items: "Ready-to-cook, noodles, sauces, frozen peas.", tone: "bg-brand-blue text-white", stickers: ["peas"] },
 ];
 
 export const offers = [
